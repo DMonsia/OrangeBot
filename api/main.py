@@ -66,4 +66,10 @@ async def question_answer(
         vectorstore=vectorstore,
         chain_type_kwargs=chain_type_kwargs,
     )
-    return await chain.acall(query)
+    res = await chain.acall(query)
+
+    with open(config.HIISTORY_FILE, "a") as f:
+        f.write(
+            f"""{res["question"]}[SEP]{res["answer"]}[SEP]{res["sources"]}[END]\n\n"""
+        )
+    return res

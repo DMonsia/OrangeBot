@@ -15,3 +15,4 @@ CSV_SEP = ","
 
 # vectorstore
 STORE_FILE = "./data/vectorstore"
+HIISTORY_FILE = "./data/history.txt"
