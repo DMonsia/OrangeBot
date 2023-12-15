@@ -1,13 +1,13 @@
 import os
 import pickle
 
-import chainlit as cl
+import config
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 
-import config
+import chainlit as cl
 
 
 async def vectorize_and_store(texts, metadatas):

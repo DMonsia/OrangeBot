@@ -1,11 +1,11 @@
 import os
 import pickle
 
-import chainlit as cl
-
 from src.chain import get_chain, vectorize_and_store
 from src.prompt import chain_type_kwargs, text_splitter
 from src.utils import process_uploaded_files
+
+import chainlit as cl
 
 
 # Définition d'une fonction d'initialisation exécutée au démarrage
@@ -16,7 +16,7 @@ async def init():
         content="Bienvenue !\n Je suis votre assistant virtuel charger de vous aider dans la comprehension des services d'Orange. Je réponds à vos questions sur la base des documents que vous me donnez.",
     ).send()
 
-    # Verifier que des documents ont deja ete charger
+    # Verifier si des documents ont deja ete charger
     store_file = "./data/vectorstore.pk"
     if os.path.isfile(store_file):
         with open(store_file, "rb") as f:

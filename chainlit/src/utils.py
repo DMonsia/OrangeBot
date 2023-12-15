@@ -1,12 +1,11 @@
 import io
 import re
 
+import config
 import fitz
 import pandas as pd
 import pytesseract
 from PIL import Image
-
-import config
 
 
 def is_page_textual(page, text_threshold=0.0):
